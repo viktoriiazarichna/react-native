@@ -1,21 +1,23 @@
 import React from 'react';
-
-import {createStackNavigator} from "@react-navigation/stack";
 import {NavigationContainer} from "@react-navigation/native";
 import PostsComponent from "./src/api/components/PostsComponent";
-import PostDetailsComponent from "./src/api/components/PostDetailsComponent";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import UserDrawer from "./src/api/components/UserDrawer";
+import CameraComponent from "./src/api/components/CameraComponent";
 
-let StackNavigator = createStackNavigator();
+let BottomTabNavigator = createBottomTabNavigator();
 
 export default function App() {
 
 
   return (
     <NavigationContainer>
-        <StackNavigator.Navigator>
-            <StackNavigator.Screen name={'Posts'} component={PostsComponent}/>
-            <StackNavigator.Screen name={'PostDetails'} component={PostDetailsComponent}/>
-        </StackNavigator.Navigator>
+      <BottomTabNavigator.Navigator tabBarOptions={{tabStyle: {justifyContent: 'center', alignItems: 'center' } }}>
+        <BottomTabNavigator.Screen name={'posts'} component={PostsComponent}/>
+        <BottomTabNavigator.Screen name={'users'} component={UserDrawer}/>
+          <BottomTabNavigator.Screen name={'camera'} component={CameraComponent} options={{unmountOnBlur: true}}/>
+      </BottomTabNavigator.Navigator>
+
     </NavigationContainer>
 
   );

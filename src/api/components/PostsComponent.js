@@ -20,7 +20,8 @@ const PostsComponent = (props) => {
 
     return <View>
 
-        <FlatList data={posts} renderItem={({item}) => {return <PostComponent nav={navigation} item={item} /> }} keyExtractor={item => ''+ item.id}/>
+        <FlatList data={posts} renderItem={({item}) => {return <PostComponent nav={navigation} item={item} /> }} keyExtractor={item => ''+ item.id}
+        />
     </View>
 
 
